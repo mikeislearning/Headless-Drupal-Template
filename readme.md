@@ -1,3 +1,5 @@
+Forked from https://github.com/mwalters/simple-vagrant-lamp
+
 # Simple Vagrant LAMP box
 
 ## Features
