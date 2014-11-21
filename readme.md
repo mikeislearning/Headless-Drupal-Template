@@ -64,8 +64,16 @@ Check out the [MailCatcher](http://mailcatcher.me/) homepage, but the short desc
 
 
 ## How to Drupal
-=================
+
+Once you install drupal, do the following:
+```
+vagrant ssh
+cd /var/www
+./drupal.sh
+```
+
 This repo is set up with Drupal 7, which you can download [here](https://www.drupal.org/project/drupal).
+
 ### Modules
 	- Admin, Admin menu, Adminimal
 		- Much better Toolbar
