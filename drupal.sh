@@ -1,6 +1,6 @@
 # Install Drupal
-cd /var/www && drush dl drupal-7.x
-mv /var/www/drupal-7.x-dev/* /var/www/ && rm -rf /var/www/drupal-7.x-dev
+cd /var/www && drush dl drupal-7.34
+mv /var/www/drupal-7.34/* /var/www/ && rm -rf /var/www/drupal-7.34
 
 cp /var/www/sites/default/default.settings.php /var/www/sites/default/settings.php
 
