@@ -4,7 +4,15 @@ debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again pa
 
 # Install packages
 apt-get update
-apt-get -y install mysql-server-5.5 php5-mysql libsqlite3-dev apache2 php5 php5-dev build-essential php-pear ruby1.9.1-dev php5-gd drush
+apt-get -y install mysql-server-5.5 php5-mysql libsqlite3-dev apache2 php5 php5-dev php5-curl php5-gd  build-essential php-pear ruby1.9.1-dev
+
+#Install composer
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+#Install Drush
+composer global require drush/drush:6.x
 
 # Set timezone
 echo "America/New_York" | tee /etc/timezone
