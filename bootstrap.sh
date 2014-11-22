@@ -33,10 +33,7 @@ sed -i '/display_errors = Off/c display_errors = On' /etc/php5/apache2/php.ini
 sed -i '/error_reporting = E_ALL & ~E_DEPRECATED/c error_reporting = E_ALL | E_STRICT' /etc/php5/apache2/php.ini
 sed -i '/html_errors = Off/c html_errors = On' /etc/php5/apache2/php.ini
 
-mkdir sites/default/files
-chmod -R 777 sites/default/files
-cp sites/default/default.settings.php sites/default/settings.php
-
 # Make sure things are up and running as they should be
 mailcatcher --http-ip=192.168.56.101
 service apache2 restart
+
