@@ -4,15 +4,7 @@ debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again pa
 
 # Install packages
 apt-get update
-apt-get -y install mysql-server-5.5 php5-mysql libsqlite3-dev apache2 php5 php5-dev php5-curl php5-gd  build-essential php-pear ruby1.9.1-dev
-
-#Install composer
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-
-#Install Drush
-composer global require drush/drush:6.x
+apt-get -y install mysql-server-5.5 php5-mysql libsqlite3-dev apache2 php5 php5-dev php5-curl php5-gd  build-essential php-pear ruby1.9.1-dev drush
 
 # Set timezone
 echo "America/New_York" | tee /etc/timezone
@@ -31,17 +23,17 @@ a2enmod rewrite
 cat /var/custom_config_files/apache2/default | tee /etc/apache2/sites-available/000-default.conf
 
 # Install Mailcatcher
-# echo "Installing mailcatcher"
-# gem install mailcatcher --no-ri --no-rdoc
-# mailcatcher --http-ip=192.168.56.101
+echo "Installing mailcatcher"
+gem install mailcatcher --no-ri --no-rdoc
+mailcatcher --http-ip=192.168.56.101
 
 # Configure PHP
-# sed -i '/;sendmail_path =/c sendmail_path = "/usr/local/bin/catchmail"' /etc/php5/apache2/php.ini
+sed -i '/;sendmail_path =/c sendmail_path = "/usr/local/bin/catchmail"' /etc/php5/apache2/php.ini
 sed -i '/display_errors = Off/c display_errors = On' /etc/php5/apache2/php.ini
 sed -i '/error_reporting = E_ALL & ~E_DEPRECATED/c error_reporting = E_ALL | E_STRICT' /etc/php5/apache2/php.ini
 sed -i '/html_errors = Off/c html_errors = On' /etc/php5/apache2/php.ini
 
 # Make sure things are up and running as they should be
-# mailcatcher --http-ip=192.168.56.101
+mailcatcher --http-ip=192.168.56.101
 service apache2 restart
 

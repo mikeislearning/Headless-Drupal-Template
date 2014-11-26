@@ -1,2 +1,3 @@
 .vagrant
 sqldump/*.sql
+www/sites/all/modules
