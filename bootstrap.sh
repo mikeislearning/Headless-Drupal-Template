@@ -31,17 +31,17 @@ a2enmod rewrite
 cat /var/custom_config_files/apache2/default | tee /etc/apache2/sites-available/000-default.conf
 
 # Install Mailcatcher
-echo "Installing mailcatcher"
-gem install mailcatcher --no-ri --no-rdoc
-mailcatcher --http-ip=192.168.56.101
+# echo "Installing mailcatcher"
+# gem install mailcatcher --no-ri --no-rdoc
+# mailcatcher --http-ip=192.168.56.101
 
 # Configure PHP
-sed -i '/;sendmail_path =/c sendmail_path = "/usr/local/bin/catchmail"' /etc/php5/apache2/php.ini
+# sed -i '/;sendmail_path =/c sendmail_path = "/usr/local/bin/catchmail"' /etc/php5/apache2/php.ini
 sed -i '/display_errors = Off/c display_errors = On' /etc/php5/apache2/php.ini
 sed -i '/error_reporting = E_ALL & ~E_DEPRECATED/c error_reporting = E_ALL | E_STRICT' /etc/php5/apache2/php.ini
 sed -i '/html_errors = Off/c html_errors = On' /etc/php5/apache2/php.ini
 
 # Make sure things are up and running as they should be
-mailcatcher --http-ip=192.168.56.101
+# mailcatcher --http-ip=192.168.56.101
 service apache2 restart
 
