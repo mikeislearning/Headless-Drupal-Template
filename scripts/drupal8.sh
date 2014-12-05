@@ -26,7 +26,7 @@ chmod a+w sites/default
 chmod a+w sites/default/files
 
 # Install latest version of Drupal 7
-drush -y si standard --db-url=mysql://devdb:devdb@localhost/devdb --account-name=admin --account-pass=admin --site-name="Nestle Drupal 8"
+drush -y si standard --db-url=mysql://devdb:devdb@localhost/devdb --account-name=admin --account-pass=admin --site-name="Headless Drupal Template"
 
 
 cd /var/www
