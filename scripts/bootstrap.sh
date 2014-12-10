@@ -7,7 +7,7 @@ apt-get update
 apt-get -y install mysql-server-5.5 php5-mysql libsqlite3-dev apache2 php5 php5-dev php5-curl php5-gd  build-essential php-pear ruby1.9.1-dev drush git nfs-kernel-server
 
 
-echo './envvars' > '/etc/apache2/envvars'
+# echo './envvars' > '/etc/apache2/envvars'
 
 # Set timezone
 echo "America/New_York" | tee /etc/timezone
