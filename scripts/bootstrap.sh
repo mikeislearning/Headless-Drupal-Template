@@ -24,6 +24,8 @@ echo "FLUSH PRIVILEGES" | mysql -uroot -proot
 echo "ServerName localhost" >> /etc/apache2/apache2.conf
 a2enmod rewrite
 cat /var/custom_config_files/apache2/default | tee /etc/apache2/sites-available/000-default.conf
+cat /var/custom_config_files/apache2/envvars | tee /etc/apache2/envvars
+
 
 # Install Mailcatcher
 echo "Installing mailcatcher"
