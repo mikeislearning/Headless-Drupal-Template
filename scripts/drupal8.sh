@@ -10,7 +10,10 @@ composer global require drush/drush:7.*
 
 # Install latest version of Drupal 8
 cd /var/www
-git clone https://github.com/drupal/drupal.git drupal
+
+# git clone https://github.com/drupal/drupal.git drupal
+drush dl --select --default-major-8 --drupal-project-rename=drupal8
+# TODO - how do you auto-select one of the versions? there are options 0, 1, an d2
 mv /var/www/drupal/* /var/www/
 rm -rf /var/www/drupal
 
